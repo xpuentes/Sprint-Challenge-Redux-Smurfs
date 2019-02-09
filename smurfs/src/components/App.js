@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import { connect } from 'react-redux';
-import { getSmurfs } from '../actions';
+import { getSmurfs, deleteSmurf } from '../actions';
 import PostForm from './PostForm';
 /*
  to wire this component up you're going to need a few things.
@@ -22,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.props.smurfs.map(smurf => <div><p>{smurf.name}</p><p>{smurf.age}</p><p>{smurf.height}</p></div>)}
+        {this.props.smurfs.map(smurf => <div><p>{smurf.name}</p><p>{smurf.age}</p><p>{smurf.height}</p><button onClick={e => this.props.deleteSmurf(smurf.id)}>Delete</button></div>)}
         <PostForm />
       </div>
     );
@@ -35,4 +35,4 @@ const mstp = (state) => {
   }
 }
 
-export default connect(mstp, { getSmurfs: getSmurfs })(App);
+export default connect(mstp, { getSmurfs: getSmurfs, deleteSmurf: deleteSmurf })(App);
