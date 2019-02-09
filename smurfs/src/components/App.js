@@ -4,6 +4,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import { getSmurfs, deleteSmurf } from '../actions';
 import PostForm from './PostForm';
+import PutForm from './PutForm';
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own.
@@ -24,6 +25,7 @@ class App extends Component {
       <div className="App">
         {this.props.smurfs.map(smurf => <div><p>{smurf.name}</p><p>{smurf.age}</p><p>{smurf.height}</p><button onClick={e => this.props.deleteSmurf(smurf.id)}>Delete</button></div>)}
         <PostForm />
+        <PutForm />
       </div>
     );
   }

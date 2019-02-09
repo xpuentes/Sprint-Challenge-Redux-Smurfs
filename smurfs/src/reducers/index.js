@@ -2,7 +2,7 @@
   Be sure to import in all of the action types from `../actions`
 */
 
-import { FETCH_SMURFS, ADD_SMURF, DELETE_SMURF } from '../actions'
+import { FETCH_SMURFS, ADD_SMURF, DELETE_SMURF, UPDATE_SMURF } from '../actions'
 
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
@@ -35,7 +35,9 @@ export default (state = initialState, action) => {
       case ADD_SMURF:
         return { ...state, smurfs: action.payload };
       case DELETE_SMURF:
-        return { ...state, smurfs: action.payload }
+        return { ...state, smurfs: action.payload };
+      case UPDATE_SMURF:
+        return { ...state, smurfs: action.payload };
       default:
         return state;
     }
